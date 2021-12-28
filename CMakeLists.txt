@@ -5,11 +5,17 @@ set(CMAKE_CXX_STANDARD 23)
 
 include_directories(${PROJECT_SOURCE_DIR}/Dependencies/GLFW/include)
 
-link_directories(${PROJECT_SOURCE_DIR}/Dependencies/GLFW/lib-arm64)
+include_directories(${PROJECT_SOURCE_DIR}/Dependencies/GLEW/include)
+
+link_directories(${PROJECT_SOURCE_DIR}/Dependencies/GLFW/lib-universal)
+
+link_directories(${PROJECT_SOURCE_DIR}/Dependencies/GLEW/lib)
 
 add_executable(Sparky Sparky-core/main.cpp Sparky-core/src/graphics/window.cpp Sparky-core/src/graphics/window.h)
 
 target_link_libraries(Sparky glfw3)
+
+target_link_libraries(Sparky glew)
 
 target_link_libraries(Sparky "-framework OpenGL")
 target_link_libraries(Sparky "-framework Cocoa")

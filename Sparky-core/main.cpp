@@ -1,5 +1,6 @@
 #include "src/graphics/window.h"
 
+
 int main() {
     using namespace sparky;
     using namespace graphics;
@@ -17,6 +18,9 @@ int main() {
         glEnd();
         window.update();
     }
+
+    glewInit();
+
 
     return 0;
 }
